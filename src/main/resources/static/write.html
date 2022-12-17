@@ -11,14 +11,12 @@
 
     <h1>글쓰기 페이지</h1>
     <form method="POST" action="/registry">
-
         제목<br>
         <input type="text" name="title"><br>
         내용<br>
-        <textarea rows="10" cols="50" name="content"></textarea><br>
+        <textarea rows="20" cols="100" name="content"></textarea><br>
 
-        <input id="registry" type="submit" value="등록">
-
+        <input onclick="return confirm('등록하시겠습니까?');" type="submit" value="등록">
     </form>
 
 </body>
