@@ -2,6 +2,8 @@ package com.simpleboard.board.API;
 
 import com.simpleboard.board.Entity.BoardEntity;
 import com.simpleboard.board.Interface.BoardRepo;
+import com.simpleboard.board.Parameter.Seq;
+import com.simpleboard.board.Response.ViewResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -36,6 +38,16 @@ public class BoardController {
         board.setDate(new Date());
         repo.save(board);
         return goMain();
+    }
+
+    @PostMapping(value = "/view")
+    public ViewResponse view(@RequestBody Seq seq){
+        BoardEntity board = repo.findById(seq.getSeq()).orElseThrow(IllegalAccessError::new);
+
+        return ViewResponse.builder()
+                .title(board.getTitle())
+                .content(board.getContent())
+                .build();
     }
 
 }

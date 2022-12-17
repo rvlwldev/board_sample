@@ -50,7 +50,7 @@ function attachList(json) {
 
         tdSeq.innerText = row.seq;
 
-        a.setAttribute('href', "/view/" + row.seq);
+        a.setAttribute('href', "/view?seq=" + row.seq);
         a.innerText = row.title;
         th.appendChild(a)
 
