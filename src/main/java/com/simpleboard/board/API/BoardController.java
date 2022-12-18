@@ -50,4 +50,10 @@ public class BoardController {
                 .build();
     }
 
+    @GetMapping(value = "/remove/{seq}")
+    public ResponseEntity<?> remove(@PathVariable long seq) {
+        repo.deleteById(seq);
+        return goMain();
+    }
+
 }
